@@ -1,11 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronLeft, Gift, Sparkles, Heart, Trophy } from 'lucide-react'
+import { ChevronLeft, Gift, Sparkles, Heart } from 'lucide-react'
 
-export default function Chapter4({ onPrev, onQuiz }) {
-  const [showQRIS, setShowQRIS] = useState(false)
+export default function Chapter4({ onPrev, onNext }) {
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -27,54 +25,8 @@ export default function Chapter4({ onPrev, onQuiz }) {
     }
   }
 
-  const giftVariants = {
-    hidden: { scale: 0, rotate: -180 },
-    visible: {
-      scale: 1,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 15
-      }
-    }
-  }
-
-  // Confetti burst
-  const confettiItems = Array.from({ length: 50 }, (_, i) => i)
-
   return (
     <div className="min-h-screen flex items-center justify-center p-4 md:p-6 relative overflow-hidden">
-      {/* Confetti Celebration */}
-      {showQRIS && (
-        <div className="absolute inset-0 pointer-events-none">
-          {confettiItems.map((i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              initial={{ 
-                x: '50vw', 
-                y: '50vh',
-                scale: 0
-              }}
-              animate={{ 
-                x: `${Math.random() * 100}vw`,
-                y: `${Math.random() * 100}vh`,
-                scale: 1,
-                rotate: Math.random() * 720
-              }}
-              transition={{
-                duration: 1.5,
-                ease: "easeOut",
-                delay: Math.random() * 0.3
-              }}
-              style={{ fontSize: `${16 + Math.random() * 16}px` }}
-            >
-              {['🎉', '🎊', '✨', '💕', '🎁', '💖'][Math.floor(Math.random() * 6)]}
-            </motion.div>
-          ))}
-        </div>
-      )}
 
       <motion.div
         variants={containerVariants}
@@ -145,102 +97,52 @@ export default function Chapter4({ onPrev, onQuiz }) {
 
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl space-y-4">
               <p className="text-base md:text-lg leading-relaxed text-gray-800">
-                Di halaman ini, ada satu kejutan kecil buat kamuu kwkwk sesuatu yang aku siapin biar 
-                Naura senyum sambil bilang,{' '}
-                <span className="font-bold text-accent">"apaan sih ini… ngakak anjirr😭💗"</span> wkwk.
+                Tau gak sihh? Di dunia ini ada banyak orang yang datang dan pergi, 
+                tapi nggak semua orang ninggalin{' '}
+                <span className="font-bold text-accent">kesan yang bikin kangen</span>.
+                <span className="emoji-bounce inline-block ml-1">💭</span>
               </p>
 
               <p className="text-base md:text-lg leading-relaxed text-gray-800">
-                Anggap aja ini bentuk penghargaan kecil buat sosok yang selalu hadir dalam bentuk apapunnn{' '}
-                <span className="font-bold text-accent">
-                  DALAM BENTUK KUDA, KODOK, PINOKIO, PERI, MUSANG
-                </span>{' '}
-                WKWKWKKWKKW
-                <span className="emoji-bounce ml-2">🦄🐸🤥🧚‍♀️🦊</span>
+                Nauu, kamu termasuk yang susah dilupain lho. Bukan karena Naura ribet 
+                atau gimana yaa, tapi karena{' '}
+                <span className="font-bold text-accent">cara Naura ada</span> itu beda. 
+                Kayak ada <span className="font-bold text-accent">kehangatan khusus</span> yang 
+                ngebuat orang di sekitar Naura merasa… nyaman aja gitu.
+                <span className="emoji-bounce inline-block ml-1">☀️</span>
               </p>
 
-              {/* Gift Reveal Button */}
-              {!showQRIS ? (
-                <motion.div
-                  variants={giftVariants}
-                  className="flex justify-center py-4"
-                >
-                  <motion.button
-                    onClick={() => setShowQRIS(true)}
-                    className="group relative"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <motion.div
-                      animate={{ 
-                        rotate: [0, -5, 5, -5, 0],
-                        y: [0, -10, 0]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="bg-gradient-to-br from-accent to-primary p-10 rounded-3xl shadow-2xl"
-                    >
-                      <Gift className="w-24 h-24 text-white" />
-                    </motion.div>
-                    <p className="text-lg font-bold text-accent mt-4 text-center">
-                      Klik untuk Buka Hadiah! 🎁
-                    </p>
-                  </motion.button>
-                </motion.div>
-              ) : (
-                <motion.div
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="space-y-4"
-                >
-                  {/* QRIS Card */}
-                  <div className="bg-gradient-to-br from-white to-lightPink rounded-2xl p-6 border-4 border-gold shadow-xl">
-                    <div className="flex justify-center mb-3">
-                      <Trophy className="w-10 h-10 text-gold fill-gold" />
-                    </div>
+              <p className="text-base md:text-lg leading-relaxed text-gray-800">
+                Dan aku mau bilang terima kasih, Nau. Buat semua momen-momen kecil yang 
+                mungkin kamu nggak sadar tapi sangat{' '}
+                <span className="font-bold text-accent">berarti banget</span>. 
+                Buat semua tawa, cerita, bahkan hening yang kadang lebih bercerita dari 
+                seribu kata wkwk.
+                <span className="emoji-bounce inline-block ml-1">💕</span>
+              </p>
 
-                    <h3 className="text-xl md:text-2xl font-playfair font-bold text-center text-accent mb-4">
-                      Hadiah Spesial Untukmu! 🎁
-                    </h3>
-
-                    {/* QRIS Code */}
-                    <div className="bg-white rounded-xl p-4 mb-3 shadow-inner">
-                      <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center overflow-hidden">
-                        <img
-                          src="/qris-50k.png"
-                          alt="QRIS 50k"
-                          className="w-full h-full object-contain"
-                          onError={(e) => {
-                            e.target.style.display = 'none'
-                            e.target.nextSibling.style.display = 'flex'
-                          }}
-                        />
-                        <div className="hidden flex-col items-center justify-center text-center p-6">
-                          <Sparkles className="w-16 h-16 text-accent mx-auto mb-3" />
-                          <p className="text-gray-600 font-poppins">QRIS Code</p>
-                          <p className="text-2xl font-bold text-accent mt-2">IDR 50.000</p>
-                          <p className="text-xs text-gray-500 mt-3">💳 Taruh QRIS di: public/qris-50k.png</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-accent/10 rounded-lg p-3 mb-3">
-                      <p className="text-center text-base font-semibold text-accent">💰 Nominal: Rp 50.000</p>
-                    </div>
-
-                    <p className="text-sm md:text-base leading-relaxed text-gray-800 text-center">
-                      Semoga hari Tuan Putri Naura jadi lebih{' '}
-                      <span className="font-bold text-accent">semangatt lagii</span> dan jadii{' '}
-                      <span className="font-bold text-accent">powerfull</span> YAAAAA
-                      <span className="emoji-bounce ml-1">💪✨</span>
-                    </p>
-
-                    <p className="text-base md:text-lg font-playfair font-bold text-accent text-center mt-3">
-                      Dan… selamat ulang tahun, Naura! 🎂
-                    </p>
-                  </div>
-                </motion.div>
-              )}
+              <motion.div
+                className="bg-gradient-to-r from-primary/30 to-accent/30 rounded-xl p-5 mt-6 border-2 border-accent/30"
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                <p className="text-center text-base md:text-lg text-gray-800 mb-3">
+                  Sekarang, aku punya sesuatu kecil buat kamu...
+                  <span className="emoji-bounce inline-block ml-1">🎁</span>
+                </p>
+                <p className="text-center text-lg md:text-xl font-bold text-accent font-playfair">
+                  Anggap aja ini bentuk penghargaan buat sosok yang selalu hadir 
+                  dalam bentuk apapunnn
+                </p>
+                <p className="text-center text-sm md:text-base text-gray-700 mt-2">
+                  <span className="font-bold text-accent">
+                    DALAM BENTUK KUDA, KODOK, PINOKIO, PERI, MUSANG
+                  </span>{' '}
+                  WKWKWKKWKKW
+                  <span className="emoji-bounce inline-block ml-1">🦄🐸🤥🧚‍♀️🦊</span>
+                </p>
+              </motion.div>
             </div>
 
             {/* Navigation Buttons */}
@@ -256,18 +158,18 @@ export default function Chapter4({ onPrev, onQuiz }) {
               </motion.button>
 
               <motion.button
-                onClick={onQuiz}
+                onClick={onNext}
                 className="btn-primary text-lg flex items-center gap-3"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Trophy className="w-5 h-5" />
-                <span>Quiz Time!</span>
+                <Gift className="w-5 h-5" />
+                <span>Buka Hadiah</span>
                 <motion.span
-                  animate={{ rotate: [0, 10, -10, 0] }}
+                  animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 >
-                  🎯
+                  🎁
                 </motion.span>
               </motion.button>
             </div>

@@ -7,6 +7,7 @@ import Chapter1 from "@/components/Chapter1";
 import Chapter2 from "@/components/Chapter2";
 import Chapter3 from "@/components/Chapter3";
 import Chapter4 from "@/components/Chapter4";
+import Chapter5 from "@/components/Chapter5";
 import MusicPlayer from "@/components/MusicPlayer";
 import PageIndicator from "@/components/PageIndicator";
 import QuizModal from "@/components/QuizModal";
@@ -18,22 +19,11 @@ export default function Home() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   const chapters = [
-    <Chapter1 key="chapter1" onNext={() => handlePageChange(1)} />,
-    <Chapter2
-      key="chapter2"
-      onNext={() => handlePageChange(2)}
-      onPrev={() => handlePageChange(0)}
-    />,
-    <Chapter3
-      key="chapter3"
-      onNext={() => handlePageChange(3)}
-      onPrev={() => handlePageChange(1)}
-    />,
-    <Chapter4
-      key="chapter4"
-      onPrev={() => handlePageChange(2)}
-      onQuiz={() => setShowQuiz(true)}
-    />,
+    { component: Chapter1, name: "Si Clingy Yang Lucu" },
+    { component: Chapter2, name: "Just A Little Thing" },
+    { component: Chapter3, name: "The Stronger Woman" },
+    { component: Chapter4, name: "Hadiah Buat Pinokio" },
+    { component: Chapter5, name: "QRIS Gift" },
   ];
 
   const handlePageChange = (newPage) => {
@@ -91,7 +81,7 @@ export default function Home() {
       {currentPage >= 0 && <FloatingHearts />}
 
       {currentPage >= 0 && (
-        <PageIndicator currentPage={currentPage} totalPages={4} />
+        <PageIndicator currentPage={currentPage} totalPages={5} />
       )}
 
       <MusicPlayer
@@ -114,7 +104,33 @@ export default function Home() {
             className="relative z-10"
             style={{ perspective: 1000 }}
           >
-            {chapters[currentPage]}
+            {currentPage === 0 && (
+              <Chapter1 onNext={() => handlePageChange(1)} />
+            )}
+            {currentPage === 1 && (
+              <Chapter2
+                onNext={() => handlePageChange(2)}
+                onPrev={() => handlePageChange(0)}
+              />
+            )}
+            {currentPage === 2 && (
+              <Chapter3
+                onNext={() => handlePageChange(3)}
+                onPrev={() => handlePageChange(1)}
+              />
+            )}
+            {currentPage === 3 && (
+              <Chapter4
+                onNext={() => handlePageChange(4)}
+                onPrev={() => handlePageChange(2)}
+              />
+            )}
+            {currentPage === 4 && (
+              <Chapter5
+                onPrev={() => handlePageChange(3)}
+                onQuiz={() => setShowQuiz(true)}
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
