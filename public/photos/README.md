@@ -3,7 +3,7 @@
 ## ⚠️ PENTING: Upload foto-foto dengan nama berikut:
 
 1. **naura-1.jpg** - Untuk Chapter 1 (Si Clingy Yang Lucu)
-2. **naura-2.jpg** - Untuk Chapter 2 (Photo Slideshow)  
+2. **naura-2.jpg** - Untuk Chapter 2 (Photo Slideshow)
 3. **naura-3.jpg** - Untuk Chapter 3 (The Stronger Woman)
 4. **naura-4.jpg** - Untuk Chapter 4 (Hadiah Buat Pinokio)
 

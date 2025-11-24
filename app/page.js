@@ -123,9 +123,7 @@ export default function Home() {
               />
             )}
             {currentPage === 4 && (
-              <Chapter5 
-                onPrev={() => handlePageChange(3)} 
-              />
+              <Chapter5 onPrev={() => handlePageChange(3)} />
             )}
           </motion.div>
         )}

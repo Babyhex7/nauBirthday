@@ -97,10 +97,10 @@ export default function Chapter5({ onPrev }) {
           </motion.div>
 
           <h1 className="font-playfair text-5xl md:text-7xl font-bold gradient-text mb-4">
-            Hadiah Spesial Untukmu!
+            Hadiah Spesial Untukmu
           </h1>
           <p className="text-lg md:text-xl text-gray-600 font-pacifico">
-            Klik kotak hadiah di bawah untuk membuka kejutan 🎁
+            Klik kotak hadiah di bawah untuk membuka kejutan
           </p>
         </motion.div>
 
@@ -131,7 +131,7 @@ export default function Chapter5({ onPrev }) {
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                Klik untuk Buka Hadiah! 🎁✨
+                Klik untuk Buka Hadiah
               </motion.p>
             </motion.button>
           </motion.div>
@@ -164,7 +164,7 @@ export default function Chapter5({ onPrev }) {
               </div>
 
               <h3 className="text-3xl md:text-4xl font-playfair font-bold text-center text-accent mb-8">
-                Hadiah Spesial Untukmu! 🎁
+                Hadiah Spesial Untukmu
               </h3>
 
               {/* QRIS Code */}
@@ -189,7 +189,7 @@ export default function Chapter5({ onPrev }) {
               </div>
 
               <div className="bg-gradient-to-r from-accent/20 to-primary/20 rounded-2xl p-6 mb-6 border-2 border-accent/30">
-                <p className="text-center text-2xl font-bold text-accent">💰 Nominal: Rp 50.000</p>
+                <p className="text-center text-2xl font-bold text-accent">Nominal: Rp 50.000</p>
               </div>
 
               {/* Final Message */}
@@ -200,52 +200,19 @@ export default function Chapter5({ onPrev }) {
                 className="bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl p-6 text-center"
               >
                 <p className="text-lg md:text-xl leading-relaxed text-gray-800 mb-4">
-                  Semoga hari Tuan Putri Naura jadi lebih{' '}
-                  <span className="font-bold text-accent">semangatt lagii</span> hari hari kedepan nyaa 
-                  dan jadii <span className="font-bold text-accent">powerfull</span> YAAAAA
-                  <span className="emoji-bounce ml-2">💪✨</span>
+                  Semoga hari Tuan Putri Naura jadi lebih semangat lagi hari-hari kedepannya 
+                  dan jadi powerfull YAAAAA
                 </p>
 
                 <p className="text-2xl md:text-3xl font-playfair font-bold text-accent mb-4">
-                  Dan… selamat ulang tahun, Naura! 🎂
+                  Dan selamat ulang tahun, Naura
                 </p>
 
                 <p className="text-lg md:text-xl leading-relaxed text-gray-800">
-                  Semoga jugaa cerita Naura ke depan dipenuhi{' '}
-                  <span className="font-bold text-accent">hal-hal baikk</span>, 
-                  dikelilingin <span className="font-bold text-accent">orang hebatt</span>, 
-                  dan yang paling pentingg{' '}
-                  <span className="font-bold text-accent text-2xl">
-                    HARUSS BAHAGIAN N HAPPYY SELALLUUU YA NAU NAU UNYUU
-                  </span>
-                  <span className="emoji-bounce ml-2">✨💖</span>
+                  Semoga juga cerita Naura ke depan dipenuhi hal-hal baik, 
+                  dikelilingin orang hebat, dan yang paling penting
+                  HARUS BAHAGIA N HAPPY SELALU YA NAU NAU UNYU
                 </p>
-
-                {/* Final Emoji Burst */}
-                <motion.div
-                  className="flex justify-center gap-4 mt-6 flex-wrap"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 1, type: "spring" }}
-                >
-                  {['🎉', '💕', '✨', '🎂', '🌟', '💖', '🎊', '🎁'].map((emoji, i) => (
-                    <motion.span
-                      key={i}
-                      className="text-5xl"
-                      animate={{ 
-                        y: [0, -15, 0],
-                        rotate: [0, 10, -10, 0]
-                      }}
-                      transition={{ 
-                        duration: 1.5,
-                        repeat: Infinity,
-                        delay: i * 0.15
-                      }}
-                    >
-                      {emoji}
-                    </motion.span>
-                  ))}
-                </motion.div>
               </motion.div>
             </motion.div>
           </motion.div>
