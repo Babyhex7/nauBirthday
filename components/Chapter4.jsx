@@ -60,7 +60,7 @@ export default function Chapter4({ onPrev, onNext }) {
                   </div>
                 </div>
                 <p className="text-center mt-4 font-pacifico text-xl text-accent">
-                  Pinokio Manja 🎁💕
+                  Naura & Fren 💕
                 </p>
               </motion.div>
             </div>
@@ -96,31 +96,6 @@ export default function Chapter4({ onPrev, onNext }) {
             </h1>
 
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl space-y-4">
-              <p className="text-base md:text-lg leading-relaxed text-gray-800">
-                Tau gak sihh? Di dunia ini ada banyak orang yang datang dan pergi, 
-                tapi nggak semua orang ninggalin{' '}
-                <span className="font-bold text-accent">kesan yang bikin kangen</span>.
-                <span className="emoji-bounce inline-block ml-1">💭</span>
-              </p>
-
-              <p className="text-base md:text-lg leading-relaxed text-gray-800">
-                Nauu, kamu termasuk yang susah dilupain lho. Bukan karena Naura ribet 
-                atau gimana yaa, tapi karena{' '}
-                <span className="font-bold text-accent">cara Naura ada</span> itu beda. 
-                Kayak ada <span className="font-bold text-accent">kehangatan khusus</span> yang 
-                ngebuat orang di sekitar Naura merasa… nyaman aja gitu.
-                <span className="emoji-bounce inline-block ml-1">☀️</span>
-              </p>
-
-              <p className="text-base md:text-lg leading-relaxed text-gray-800">
-                Dan aku mau bilang terima kasih, Nau. Buat semua momen-momen kecil yang 
-                mungkin kamu nggak sadar tapi sangat{' '}
-                <span className="font-bold text-accent">berarti banget</span>. 
-                Buat semua tawa, cerita, bahkan hening yang kadang lebih bercerita dari 
-                seribu kata wkwk.
-                <span className="emoji-bounce inline-block ml-1">💕</span>
-              </p>
-
               <motion.div
                 className="bg-gradient-to-r from-primary/30 to-accent/30 rounded-xl p-5 mt-6 border-2 border-accent/30"
                 initial={{ scale: 0.95, opacity: 0 }}

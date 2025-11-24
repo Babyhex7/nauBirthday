@@ -10,10 +10,10 @@ export default function Chapter2({ onNext, onPrev }) {
 
   // Placeholder photos - user should replace with actual photos
   const photos = [
-    { id: 1, caption: "Moment Random 💕" },
-    { id: 2, caption: "Saat Manja wkwk 😭" },
-    { id: 3, caption: "Dewasa Mode ON 😌" },
-    { id: 4, caption: "Pipi Merah Alert! 🔥" }
+    { id: 1, caption: "Naura & Fren 💕" },
+    { id: 2, caption: "Naura & Fren 💕" },
+    { id: 3, caption: "Naura & Fren 💕" },
+    { id: 4, caption: "Naura & Fren 💕" }
   ]
 
   const handlers = useSwipeable({

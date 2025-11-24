@@ -87,7 +87,7 @@ export default function Chapter3({ onNext, onPrev }) {
                   </div>
                 </div>
                 <p className="text-center mt-4 font-pacifico text-xl text-accent">
-                  The Stronger Woman 👑
+                  Naura & Fren 💕
                 </p>
               </motion.div>
             </div>

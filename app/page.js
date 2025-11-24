@@ -10,12 +10,9 @@ import Chapter4 from "@/components/Chapter4";
 import Chapter5 from "@/components/Chapter5";
 import MusicPlayer from "@/components/MusicPlayer";
 import PageIndicator from "@/components/PageIndicator";
-import QuizModal from "@/components/QuizModal";
-
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(-1); // Start at landing
   const [direction, setDirection] = useState(1);
-  const [showQuiz, setShowQuiz] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   const chapters = [
@@ -126,16 +123,13 @@ export default function Home() {
               />
             )}
             {currentPage === 4 && (
-              <Chapter5
-                onPrev={() => handlePageChange(3)}
-                onQuiz={() => setShowQuiz(true)}
+              <Chapter5 
+                onPrev={() => handlePageChange(3)} 
               />
             )}
           </motion.div>
         )}
       </AnimatePresence>
-
-      <QuizModal isOpen={showQuiz} onClose={() => setShowQuiz(false)} />
     </main>
   );
 }

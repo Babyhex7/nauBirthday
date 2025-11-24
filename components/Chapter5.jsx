@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronLeft, Gift, Sparkles, Trophy, Download } from 'lucide-react'
 
-export default function Chapter5({ onPrev, onQuiz }) {
+export default function Chapter5({ onPrev }) {
   const [showQRIS, setShowQRIS] = useState(false)
 
   const containerVariants = {
@@ -266,21 +266,7 @@ export default function Chapter5({ onPrev, onQuiz }) {
             <span>Kembali</span>
           </motion.button>
 
-          <motion.button
-            onClick={onQuiz}
-            className="btn-primary text-lg flex items-center gap-3"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Trophy className="w-5 h-5" />
-            <span>Quiz Time!</span>
-            <motion.span
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              🎯
-            </motion.span>
-          </motion.button>
+
         </motion.div>
       </motion.div>
     </div>

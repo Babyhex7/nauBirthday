@@ -79,7 +79,7 @@ export default function Chapter1({ onNext }) {
                   </div>
                 </div>
                 <p className="text-center mt-4 font-pacifico text-xl text-accent">
-                  Si Cantik yang Lucu 💕
+                  Naura & Fren 💕
                 </p>
               </motion.div>
             </div>
