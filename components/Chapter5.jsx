@@ -107,6 +107,7 @@ export default function Chapter5({ onPrev }) {
         {/* Gift Reveal */}
         {!showQRIS ? (
           <motion.div
+            key="gift"
             variants={giftVariants}
             className="flex justify-center py-8"
           >
@@ -137,13 +138,15 @@ export default function Chapter5({ onPrev }) {
           </motion.div>
         ) : (
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            key="qris"
+            initial={{ scale: 0, opacity: 0, rotate: 0 }}
+            animate={{ scale: 1, opacity: 1, rotate: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="space-y-6"
           >
             {/* QRIS Card */}
             <motion.div
+              style={{ rotate: 0 }}
               className="bg-gradient-to-br from-white to-lightPink rounded-3xl p-8 md:p-12 border-4 border-gold shadow-2xl"
               animate={{ 
                 boxShadow: [
