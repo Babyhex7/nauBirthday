@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronLeft, Cake, Sparkles, Crown, Star } from 'lucide-react'
+import { ChevronLeft, Cake, Sparkles, Crown, Star, Heart } from 'lucide-react'
 
 export default function Chapter3({ onNext, onPrev }) {
   const containerVariants = {
@@ -54,6 +54,20 @@ export default function Chapter3({ onNext, onPrev }) {
           </motion.div>
         ))}
       </div>
+      
+      {/* Floating Icons */}
+      <motion.div className="absolute top-16 left-12 opacity-20" animate={{ y: [0, -10, 0], rotate: [0, 15, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
+        <Crown className="text-gold" size={32} />
+      </motion.div>
+      <motion.div className="absolute top-20 right-16 opacity-20" animate={{ scale: [1, 1.15, 1], rotate: [0, -10, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+        <Heart className="text-accent" size={28} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute bottom-24 left-16 opacity-20" animate={{ y: [0, 12, 0], x: [0, 8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}>
+        <Star className="text-gold" size={26} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute bottom-32 right-20 opacity-15" animate={{ rotate: [0, 20, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}>
+        <Sparkles className="text-accent" size={24} />
+      </motion.div>
 
       <motion.div
         variants={containerVariants}
@@ -71,7 +85,7 @@ export default function Chapter3({ onNext, onPrev }) {
               >
                 <div className="aspect-[3/4] bg-gradient-to-br from-gold/20 to-accent rounded-lg overflow-hidden">
                   <img
-                    src="/photos/naura-3.jpg"
+                    src="/photos/nau_rajin.jpg"
                     alt="Naura 3"
                     className="w-full h-full object-cover"
                     onError={(e) => {

@@ -1,11 +1,84 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronLeft, Gift, Sparkles, Trophy, Download } from 'lucide-react'
+import { ChevronLeft, Gift, Sparkles, Heart, Star } from 'lucide-react'
+import confetti from 'canvas-confetti'
 
 export default function Chapter5({ onPrev }) {
   const [showQRIS, setShowQRIS] = useState(false)
+
+  const handleGiftClick = () => {
+    setShowQRIS(true)
+    
+    // Confetti colorful yang meriah tapi tidak berlebihan
+    const duration = 2.5 * 1000
+    const animationEnd = Date.now() + duration
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 }
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min
+    }
+
+    const interval = setInterval(function() {
+      const timeLeft = animationEnd - Date.now()
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval)
+      }
+
+      const particleCount = 40 * (timeLeft / duration)
+      
+      // Confetti shapes campuran
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+        colors: ['#FFD700', '#FF69B4', '#87CEEB', '#98FB98', '#DDA0DD', '#F0E68C'],
+        shapes: ['circle', 'square']
+      })
+      
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+        colors: ['#FFD700', '#FF69B4', '#87CEEB', '#98FB98', '#DDA0DD', '#F0E68C'],
+        shapes: ['circle', 'square']
+      })
+    }, 250)
+
+    // Emoji confetti (lebih sedikit, tidak berlebihan)
+    const scalar = 2
+    const emojis = ['🎉', '🎊', '🎁', '💝', '✨', '💕', '🎈']
+    
+    const emojiInterval = setInterval(function() {
+      const timeLeft = animationEnd - Date.now()
+
+      if (timeLeft <= 0) {
+        return clearInterval(emojiInterval)
+      }
+
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ['#FFD700', '#FF69B4'],
+        shapes: emojis,
+        scalar
+      })
+      
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: ['#FFD700', '#FF69B4'],
+        shapes: emojis,
+        scalar
+      })
+    }, 400)
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -40,41 +113,25 @@ export default function Chapter5({ onPrev }) {
     }
   }
 
-  // Confetti burst
-  const confettiItems = Array.from({ length: 50 }, (_, i) => i)
-
   return (
     <div className="min-h-screen flex items-center justify-center p-4 md:p-6 relative overflow-hidden">
-      {/* Confetti Celebration */}
-      {showQRIS && (
-        <div className="absolute inset-0 pointer-events-none">
-          {confettiItems.map((i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              initial={{ 
-                x: '50vw', 
-                y: '50vh',
-                scale: 0
-              }}
-              animate={{ 
-                x: `${Math.random() * 100}vw`,
-                y: `${Math.random() * 100}vh`,
-                scale: 1,
-                rotate: Math.random() * 720
-              }}
-              transition={{
-                duration: 1.5,
-                ease: "easeOut",
-                delay: Math.random() * 0.3
-              }}
-              style={{ fontSize: `${16 + Math.random() * 16}px` }}
-            >
-              {['🎉', '🎊', '✨', '💕', '🎁', '💖'][Math.floor(Math.random() * 6)]}
-            </motion.div>
-          ))}
-        </div>
-      )}
+      {/* Floating Icons */}
+      <motion.div className="absolute top-16 left-12 opacity-20" animate={{ y: [0, -15, 0], rotate: [0, 20, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
+        <Gift className="text-gold" size={34} />
+      </motion.div>
+      <motion.div className="absolute top-20 right-16 opacity-20" animate={{ scale: [1, 1.2, 1], rotate: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+        <Gift className="text-accent" size={30} />
+      </motion.div>
+      <motion.div className="absolute bottom-24 left-16 opacity-20" animate={{ x: [0, 12, 0], y: [0, -8, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}>
+        <Heart className="text-accent" size={28} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute bottom-28 right-20 opacity-20" animate={{ rotate: [0, 360] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }}>
+        <Star className="text-gold" size={26} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute top-1/3 left-16 opacity-15" animate={{ y: [0, 10, 0], rotate: [0, -25, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}>
+        <Sparkles className="text-accent" size={24} />
+      </motion.div>
+
 
       <motion.div
         variants={containerVariants}
@@ -112,7 +169,7 @@ export default function Chapter5({ onPrev }) {
             className="flex justify-center py-8"
           >
             <motion.button
-              onClick={() => setShowQRIS(true)}
+              onClick={handleGiftClick}
               className="group relative"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -162,7 +219,7 @@ export default function Chapter5({ onPrev }) {
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <Trophy className="w-16 h-16 text-gold fill-gold" />
+                  <Gift className="w-16 h-16 text-gold fill-gold" />
                 </motion.div>
               </div>
 
@@ -189,10 +246,6 @@ export default function Chapter5({ onPrev }) {
                     <p className="text-sm text-gray-500 mt-4">💳 Taruh QRIS di: public/qris-50k.png</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-accent/20 to-primary/20 rounded-2xl p-6 mb-6 border-2 border-accent/30">
-                <p className="text-center text-2xl font-bold text-accent">Nominal: Rp 50.000</p>
               </div>
 
               {/* Final Message */}

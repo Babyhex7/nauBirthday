@@ -3,17 +3,17 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSwipeable } from 'react-swipeable'
-import { ChevronLeft, ChevronRight, Camera, Smile, Heart } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Camera, Smile, Heart, Star, Sparkles } from 'lucide-react'
 
 export default function Chapter2({ onNext, onPrev }) {
   const [currentPhoto, setCurrentPhoto] = useState(0)
 
-  // Placeholder photos - user should replace with actual photos
+  // Photos with real captions
   const photos = [
-    { id: 1, caption: "Naura 💕" },
-    { id: 2, caption: "Naura 💕" },
-    { id: 3, caption: "Naura 💕" },
-    { id: 4, caption: "Naura 💕" }
+    { id: 1, caption: "Naura 💕", file: "nau_cantik2.jpg" },
+    { id: 2, caption: "Ratu Lebah 🐝", file: "nau_cantik3.jpg" },
+    { id: 3, caption: "Ratu Kodok 🐸", file: "nau_ketawa.jpg" },
+    { id: 4, caption: "Most Beautiful Queen👸", file: "nau_bem.jpg" }
   ]
 
   const handlers = useSwipeable({
@@ -51,14 +51,25 @@ export default function Chapter2({ onNext, onPrev }) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 relative">
+    <div className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 opacity-20">
-        <Camera className="w-24 h-24 text-accent" />
+      <div className="absolute top-10 left-10 opacity-15">
+        <Camera className="w-20 h-20 text-accent" />
       </div>
-      <div className="absolute bottom-10 right-10 opacity-20">
-        <Smile className="w-24 h-24 text-accent" />
+      <div className="absolute bottom-10 right-10 opacity-15">
+        <Smile className="w-20 h-20 text-accent" />
       </div>
+      
+      {/* Floating Icons */}
+      <motion.div className="absolute top-1/4 right-16 opacity-20" animate={{ y: [0, -12, 0], rotate: [0, 10, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
+        <Heart className="text-accent" size={28} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute bottom-1/3 left-12 opacity-20" animate={{ x: [0, 8, 0], scale: [1, 1.1, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+        <Star className="text-gold" size={26} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute top-1/3 left-20 opacity-15" animate={{ y: [0, 10, 0], rotate: [0, -15, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}>
+        <Sparkles className="text-accent" size={24} />
+      </motion.div>
 
       <motion.div
         variants={containerVariants}
@@ -163,7 +174,7 @@ export default function Chapter2({ onNext, onPrev }) {
                       className="absolute inset-0"
                     >
                       <img
-                        src={`/photos/naura-${currentPhoto + 1}.jpg`}
+                        src={`/photos/${photos[currentPhoto].file}`}
                         alt={photos[currentPhoto].caption}
                         className="w-full h-full object-cover"
                         onError={(e) => {
@@ -181,7 +192,7 @@ export default function Chapter2({ onNext, onPrev }) {
                             {photos[currentPhoto].caption}
                           </p>
                           <p className="text-xs text-white/60 mt-4">
-                            📸 Taruh foto di: public/photos/naura-{currentPhoto + 1}.jpg
+                            📸 Taruh foto di: public/photos/{photos[currentPhoto].file}
                           </p>
                         </div>
                       </div>

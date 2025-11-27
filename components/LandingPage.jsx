@@ -148,8 +148,9 @@ export default function LandingPage({ onStart }) {
   const FloatingElements = () => {
     return (
       <>
+        {/* Top Left */}
         <motion.div
-          className="absolute top-10 left-10"
+          className="absolute top-10 left-10 opacity-30"
           animate={{
             y: [0, -20, 0],
             rotate: [0, 10, -10, 0],
@@ -160,11 +161,12 @@ export default function LandingPage({ onStart }) {
             ease: "easeInOut"
           }}
         >
-          <Heart className="text-pink-300" size={40} fill="currentColor" />
+          <Heart className="text-pink-400" size={35} fill="currentColor" />
         </motion.div>
 
+        {/* Top Right */}
         <motion.div
-          className="absolute top-20 right-20"
+          className="absolute top-20 right-20 opacity-30"
           animate={{
             y: [0, 20, 0],
             rotate: [0, -10, 10, 0],
@@ -176,11 +178,12 @@ export default function LandingPage({ onStart }) {
             delay: 0.5
           }}
         >
-          <Gift className="text-pink-400" size={45} />
+          <Gift className="text-pink-500" size={38} />
         </motion.div>
 
+        {/* Bottom Left */}
         <motion.div
-          className="absolute bottom-20 left-20"
+          className="absolute bottom-20 left-20 opacity-30"
           animate={{
             y: [0, -15, 0],
             x: [0, 10, 0],
@@ -193,11 +196,12 @@ export default function LandingPage({ onStart }) {
             delay: 1
           }}
         >
-          <Sparkles className="text-pink-300" size={35} />
+          <Sparkles className="text-pink-400" size={32} />
         </motion.div>
 
+        {/* Bottom Right */}
         <motion.div
-          className="absolute bottom-32 right-16"
+          className="absolute bottom-32 right-16 opacity-30"
           animate={{
             y: [0, 15, 0],
             rotate: [0, -20, 20, 0],
@@ -209,7 +213,75 @@ export default function LandingPage({ onStart }) {
             delay: 1.5
           }}
         >
-          <Star className="text-pink-200" size={38} fill="currentColor" />
+          <Star className="text-pink-300" size={35} fill="currentColor" />
+        </motion.div>
+
+        {/* Middle Left */}
+        <motion.div
+          className="absolute top-1/2 left-10 opacity-25"
+          animate={{
+            x: [0, 15, 0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.8
+          }}
+        >
+          <Star className="text-pink-400" size={25} fill="currentColor" />
+        </motion.div>
+
+        {/* Middle Right */}
+        <motion.div
+          className="absolute top-1/3 right-12 opacity-25"
+          animate={{
+            y: [0, -18, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.2
+          }}
+        >
+          <Heart className="text-pink-500" size={28} fill="currentColor" />
+        </motion.div>
+
+        {/* Top Middle */}
+        <motion.div
+          className="absolute top-16 left-1/4 opacity-20"
+          animate={{
+            y: [0, 12, 0],
+            rotate: [0, 45, 0],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.3
+          }}
+        >
+          <Sparkles className="text-pink-300" size={22} />
+        </motion.div>
+
+        {/* Bottom Middle */}
+        <motion.div
+          className="absolute bottom-24 right-1/4 opacity-20"
+          animate={{
+            y: [0, -10, 0],
+            x: [0, 8, 0],
+          }}
+          transition={{
+            duration: 3.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.8
+          }}
+        >
+          <Gift className="text-pink-400" size={26} />
         </motion.div>
       </>
     );

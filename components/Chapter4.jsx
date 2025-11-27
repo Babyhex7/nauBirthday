@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronLeft, Gift, Sparkles, Heart } from 'lucide-react'
+import { ChevronLeft, Gift, Sparkles, Heart, Star } from 'lucide-react'
 
 export default function Chapter4({ onPrev, onNext }) {
 
@@ -27,6 +27,22 @@ export default function Chapter4({ onPrev, onNext }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 md:p-6 relative overflow-hidden">
+      {/* Floating Icons */}
+      <motion.div className="absolute top-12 left-12 opacity-20" animate={{ y: [0, -12, 0], scale: [1, 1.1, 1] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
+        <Gift className="text-accent" size={32} />
+      </motion.div>
+      <motion.div className="absolute top-24 right-16 opacity-20" animate={{ rotate: [0, 15, 0], y: [0, 8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+        <Heart className="text-accent" size={28} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute bottom-20 left-16 opacity-20" animate={{ x: [0, 10, 0], rotate: [0, -20, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}>
+        <Star className="text-gold" size={26} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute bottom-28 right-20 opacity-15" animate={{ y: [0, -10, 0], scale: [1, 1.15, 1] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}>
+        <Sparkles className="text-accent" size={24} />
+      </motion.div>
+      <motion.div className="absolute top-1/2 right-12 opacity-15" animate={{ rotate: [0, 180, 360] }} transition={{ duration: 6, repeat: Infinity, ease: "linear" }}>
+        <Heart className="text-accent" size={22} fill="currentColor" />
+      </motion.div>
 
       <motion.div
         variants={containerVariants}
@@ -44,7 +60,7 @@ export default function Chapter4({ onPrev, onNext }) {
               >
                 <div className="aspect-[3/4] bg-gradient-to-br from-accent to-primary rounded-lg overflow-hidden">
                   <img
-                    src="/photos/naura-4.jpg"
+                    src="/photos/nau_berEmpatVer2.jpg"
                     alt="Naura 4"
                     className="w-full h-full object-cover"
                     onError={(e) => {

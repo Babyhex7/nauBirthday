@@ -47,6 +47,20 @@ export default function Chapter1({ onNext }) {
         ))}
       </div>
 
+      {/* Floating Decorative Icons */}
+      <motion.div className="absolute top-10 left-10 opacity-20" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
+        <Heart className="text-accent" size={30} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute top-20 right-16 opacity-20" animate={{ y: [0, 12, 0], rotate: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+        <Star className="text-gold" size={28} fill="currentColor" />
+      </motion.div>
+      <motion.div className="absolute bottom-24 left-16 opacity-20" animate={{ x: [0, 10, 0], rotate: [0, 20, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}>
+        <Sparkles className="text-accent" size={26} />
+      </motion.div>
+      <motion.div className="absolute bottom-32 right-20 opacity-20" animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}>
+        <Heart className="text-accent" size={24} fill="currentColor" />
+      </motion.div>
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -63,7 +77,7 @@ export default function Chapter1({ onNext }) {
               >
                 <div className="aspect-[3/4] bg-gradient-to-br from-primary to-accent rounded-lg overflow-hidden">
                   <img
-                    src="/photos/naura-1.jpg"
+                    src="/photos/nau_cantik1.jpg"
                     alt="Naura 1"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -79,7 +93,7 @@ export default function Chapter1({ onNext }) {
                   </div>
                 </div>
                 <p className="text-center mt-4 font-pacifico text-xl text-accent">
-                  Naura & Fren 💕
+                  💕 Nau Nauu 💕
                 </p>
               </motion.div>
             </div>
