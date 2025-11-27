@@ -112,7 +112,7 @@ export default function Chapter2({ onNext, onPrev }) {
               bisa dengerin tanpa motong pembicaraan, bisa ngasih pandangan yang bener bener mantapp 
               pas aku lagi bingung jadi kek{' '}
               <span className="font-bold text-accent">enak ajaa gituu</span> ngobrol sama kamu 
-              dan sering bikin aku sadar, "oh, gini ya rasanya ngobrol sama orang yang dewasaa pemikiran nyaa..." 
+              dan sering bikin aku sadar, &ldquo;oh, gini ya rasanya ngobrol sama orang yang dewasaa pemikiran nyaa...&rdquo; 
               <span className="emoji-bounce">💭</span>
             </p>
 

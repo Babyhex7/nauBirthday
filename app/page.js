@@ -86,7 +86,7 @@ export default function Home() {
         setIsPlaying={setIsMusicPlaying}
       />
 
-      <AnimatePresence initial={false} custom={direction} mode="wait">
+      <AnimatePresence initial={true} custom={direction} mode="wait">
         {currentPage === -1 ? (
           <LandingPage key="landing" onStart={() => setCurrentPage(0)} />
         ) : (

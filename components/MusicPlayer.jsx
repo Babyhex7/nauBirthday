@@ -12,14 +12,20 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
   // You can add your music file to public/music/birthday-song.mp3
   // Recommended: "A Thousand Years" - Christina Perri or any romantic instrumental
 
-  const togglePlay = () => {
+  const togglePlay = async () => {
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
+      try {
+        if (isPlaying) {
+          audioRef.current.pause()
+          setIsPlaying(false)
+        } else {
+          await audioRef.current.play()
+          setIsPlaying(true)
+        }
+      } catch (error) {
+        console.log('Audio play error:', error)
+        setIsPlaying(false)
       }
-      setIsPlaying(!isPlaying)
     }
   }
 
@@ -31,10 +37,26 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
   }
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.3 // Set volume to 30%
+    const audio = audioRef.current
+    if (audio) {
+      audio.volume = 0.3 // Set volume to 30%
+      
+      // Handle audio events
+      const handleEnded = () => setIsPlaying(false)
+      const handlePause = () => setIsPlaying(false)
+      const handlePlay = () => setIsPlaying(true)
+      
+      audio.addEventListener('ended', handleEnded)
+      audio.addEventListener('pause', handlePause)
+      audio.addEventListener('play', handlePlay)
+      
+      return () => {
+        audio.removeEventListener('ended', handleEnded)
+        audio.removeEventListener('pause', handlePause)
+        audio.removeEventListener('play', handlePlay)
+      }
     }
-  }, [])
+  }, [setIsPlaying])
 
   return (
     <>
