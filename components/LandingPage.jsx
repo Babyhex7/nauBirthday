@@ -505,25 +505,15 @@ export default function LandingPage({ onStart }) {
         >
           <motion.button
             whileHover={{ 
-              scale: 1.15,
-              y: -5,
+              scale: 1.1,
+              y: -3,
+              boxShadow: "0 20px 60px rgba(255,105,180,0.6), 0 0 40px rgba(255,20,147,0.4)"
             }}
             whileTap={{ scale: 0.95 }}
             onClick={handleStart}
-            className="group relative bg-white text-pink-500 px-12 py-5 rounded-full text-2xl font-bold shadow-2xl overflow-hidden transition-all duration-300"
+            className="relative bg-white hover:bg-gradient-to-r hover:from-pink-400 hover:via-pink-500 hover:to-pink-600 text-pink-500 hover:text-white px-12 py-5 rounded-full text-2xl font-bold shadow-2xl transition-all duration-300"
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600"
-              initial={{ x: "-100%" }}
-              transition={{ type: "spring", stiffness: 100 }}
-            />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.4 }}
-            />
-            <span className="relative z-10 flex items-center gap-3 group-hover:text-white transition-colors duration-300">
+            <span className="relative flex items-center gap-3">
               <motion.span
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -542,14 +532,6 @@ export default function LandingPage({ onStart }) {
                 →
               </motion.span>
             </span>
-            
-            {/* Glow effect on hover */}
-            <motion.div
-              className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{
-                boxShadow: "0 0 30px 10px rgba(255,105,180,0.6), 0 0 60px 20px rgba(255,20,147,0.4)"
-              }}
-            />
           </motion.button>
         </motion.div>
 
