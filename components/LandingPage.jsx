@@ -2,12 +2,55 @@
 
 import { motion } from 'framer-motion'
 import { Sparkles, Heart, ArrowRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 export default function LandingPage({ onStart }) {
   const floatingHearts = Array.from({ length: 10 }, (_, i) => i)
+  const [confetti, setConfetti] = useState([])
+
+  // Generate confetti on mount
+  useEffect(() => {
+    const confettiPieces = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      delay: Math.random() * 2,
+      duration: 3 + Math.random() * 2,
+      rotation: Math.random() * 360,
+      color: ['#FFB6C1', '#FF69B4', '#FFD700', '#FF1493', '#FFC0CB'][Math.floor(Math.random() * 5)]
+    }))
+    setConfetti(confettiPieces)
+  }, [])
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-lightPink via-primary to-accent">
+      {/* Confetti Effect */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {confetti.map((piece) => (
+          <motion.div
+            key={piece.id}
+            className="absolute w-3 h-3 rounded-sm"
+            style={{
+              left: `${piece.x}%`,
+              top: '-5%',
+              backgroundColor: piece.color,
+              rotate: piece.rotation
+            }}
+            animate={{
+              y: ['0vh', '110vh'],
+              x: [0, (Math.random() - 0.5) * 100],
+              rotate: [piece.rotation, piece.rotation + 360 * 3],
+              opacity: [1, 1, 0]
+            }}
+            transition={{
+              duration: piece.duration,
+              delay: piece.delay,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        ))}
+      </div>
+
       {/* Floating Hearts Background */}
       <div className="absolute inset-0 pointer-events-none">
         {floatingHearts.map((i) => (
@@ -38,11 +81,67 @@ export default function LandingPage({ onStart }) {
 
       {/* Main Content */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        initial={{ opacity: 0, scale: 0.5, rotateY: -180 }}
+        animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+        transition={{ 
+          duration: 1, 
+          ease: "easeOut",
+          type: "spring",
+          bounce: 0.4
+        }}
         className="relative z-10 text-center px-6"
       >
+        {/* Birthday Frame Border */}
+        <motion.div
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 0.5 }}
+          className="absolute inset-0 pointer-events-none"
+        >
+          <svg className="w-full h-full" viewBox="0 0 400 400">
+            <motion.rect
+              x="10"
+              y="10"
+              width="380"
+              height="380"
+              fill="none"
+              stroke="white"
+              strokeWidth="4"
+              strokeDasharray="10 5"
+              rx="20"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ 
+                pathLength: 1, 
+                opacity: 0.6,
+                rotate: [0, 2, -2, 0]
+              }}
+              transition={{ 
+                pathLength: { duration: 2, delay: 0.5 },
+                opacity: { duration: 1, delay: 0.5 },
+                rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+              }}
+            />
+          </svg>
+        </motion.div>
+
+        {/* Corner Decorations */}
+        {[
+          { top: -10, left: -10, rotate: 0 },
+          { top: -10, right: -10, rotate: 90 },
+          { bottom: -10, left: -10, rotate: -90 },
+          { bottom: -10, right: -10, rotate: 180 }
+        ].map((pos, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-6xl"
+            style={pos}
+            initial={{ scale: 0, rotate: pos.rotate }}
+            animate={{ scale: 1, rotate: pos.rotate }}
+            transition={{ delay: 1 + i * 0.1, type: "spring", bounce: 0.6 }}
+          >
+            🎉
+          </motion.div>
+        ))}
         {/* Sparkle Icon */}
         <motion.div
           animate={{ 

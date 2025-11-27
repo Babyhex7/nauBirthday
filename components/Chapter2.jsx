@@ -10,10 +10,10 @@ export default function Chapter2({ onNext, onPrev }) {
 
   // Placeholder photos - user should replace with actual photos
   const photos = [
-    { id: 1, caption: "Naura & Fren 💕" },
-    { id: 2, caption: "Naura & Fren 💕" },
-    { id: 3, caption: "Naura & Fren 💕" },
-    { id: 4, caption: "Naura & Fren 💕" }
+    { id: 1, caption: "Naura 💕" },
+    { id: 2, caption: "Naura 💕" },
+    { id: 3, caption: "Naura 💕" },
+    { id: 4, caption: "Naura 💕" }
   ]
 
   const handlers = useSwipeable({
@@ -78,7 +78,7 @@ export default function Chapter2({ onNext, onPrev }) {
           variants={itemVariants}
           className="text-center text-lg text-gray-700 mb-8 font-poppins"
         >
-          Momen-momen kecil yang bikin special 💗
+   
         </motion.p>
 
         {/* Content Grid */}
@@ -89,8 +89,8 @@ export default function Chapter2({ onNext, onPrev }) {
             className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl"
           >
             <p className="text-base md:text-lg leading-relaxed mb-6 text-gray-800">
-              Kalau aku mikir soal Naura, yang paling kek{' '}
-              <span className="font-bold text-accent">memorable kwkw</span> itu justru hal-hal kecil tau. 
+              Kalau mikir soal Nauraa, yang paling kek{' '}
+              <span className="font-bold text-accent">memorable kwkw</span> itu justru hal-hal kecil tauu. 
               Kayak gaya kamu yang pasrah kalau minta tolong (udah kek orang mau di bom aja anjay
               <span className="emoji-bounce">😭😭</span>), 
               yang entah kenapa yaa bikin aku gampang inget terus wkwk{' '}
@@ -107,12 +107,12 @@ export default function Chapter2({ onNext, onPrev }) {
               Terus ada sisi dewasa kamu yang aku suka kayak gak semua cewe jaman sekarang punya 
               pola pikir gini anjay, kayak kamu bisa serius kalau lagi bahas hal penting kayak 
               kedewasaan dll (kek{' '}
-              <span className="font-bold text-accent">otak nya sinkron konek anjayy</span>
+              <span className="font-bold text-accent">otak nya sung kek konekk gituu anjayy aowkaowkoakw</span>
               <span className="emoji-bounce">😭🤣</span>), 
               bisa dengerin tanpa motong pembicaraan, bisa ngasih pandangan yang bener bener mantapp 
               pas aku lagi bingung jadi kek{' '}
               <span className="font-bold text-accent">enak ajaa gituu</span> ngobrol sama kamu 
-              dan sering bikin aku sadar, "oh, gini ya rasanya ngobrol sama orang yang..." 
+              dan sering bikin aku sadar, "oh, gini ya rasanya ngobrol sama orang yang dewasaa pemikiran nyaa..." 
               <span className="emoji-bounce">💭</span>
             </p>
 

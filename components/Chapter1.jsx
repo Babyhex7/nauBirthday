@@ -102,22 +102,22 @@ export default function Chapter1({ onNext }) {
 
             <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-6 text-center md:text-left">
               Si CLINGY YANG LUCU
-            </h1>
+            </h1> 
+
 
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl space-y-4">
               <p className="text-base md:text-lg leading-relaxed text-gray-800">
-                Ada hari-hari tertentu yang vibes-nya tuh langsung beda sejak bangun tidur wkwk. 
-                Bukan karena cuaca lagi bagus atau karena aku tidur cukup… tapi karena ada seseorang 
-                yang sekarangg lagi punya momen <span className="font-bold text-accent">super duperrr spesiall</span>. 
+                 <b>HARII INII</b> gatau kenapa kerasa happy and senangg bangett bukan karena dapet duit banyak kwkw apalagi kaena dapet projek gede BUTTT karena ada seseorang 
+                yang sekarangg lagi punya momen <span className="font-bold text-accent">SUPER DUPERR SPESIALL (bukan mie ayam yaa wkwkw)</span>. 
                 Dan yapp itu adalah hari iniii <span className="emoji-bounce inline-block">😎</span>
               </p>
 
               <p className="text-base md:text-lg leading-relaxed text-gray-800">
-                Dann yapp orang itu adalah sosok perempuan yang <span className="font-bold text-accent">kocak wkkw</span>, 
+                Dia itu adalah sosok perempuan yang <span className="font-bold text-accent">kocak wkkw</span>, 
                 <span className="font-bold text-accent"> cantikkk sekalii</span>, 
                 <span className="font-bold text-accent"> baikk</span> serta sosok yang udah kek 
                 <span className="font-bold text-accent"> keibuann bangett anjay</span>, 
-                yaapp orang itu aadalah
+                yaapp orang itu adalahh...
               </p>
 
               <p className="font-playfair text-2xl md:text-3xl font-bold gradient-text text-center py-2">
@@ -127,16 +127,16 @@ export default function Chapter1({ onNext }) {
               <p className="text-base md:text-lg leading-relaxed text-gray-800">
                 Naura yang mungkin sering bilang dirinya biasa aja, padahal ya nggak gitu juga wkkw. 
                 Ada sesuatu dari cara Naura ngomong, jalan, ketawa, bahkan cara Naura diem ajaa tuhh 
-                kek apaa yaa kayak yang bikin aku (dan mungkin orang lain juga) merhatiin. Itu tuh kayak 
-                <span className="font-bold text-accent"> aura yang nggak bisa dijelasinsebenrnyaa</span>, 
-                tapi kayak seolah olah <span className="font-bold text-accent">kerasa dan hangatt banget</span>. 
+                kek apaa yaa kayak yang bikin aku (dan mungkin orang lain juga) merhatiin Itu tuh kayak 
+                <span className="font-bold text-accent"> aura yang nggak bisa dijelasin sebenrnyaa</span>, 
+                tapi kayak seolah olah <span className="font-bold text-accent">kerasa amann dan hangatt banget</span>. 
                 <span className="emoji-bounce inline-block ml-1">💕</span>
               </p>
 
               <p className="text-base md:text-lg leading-relaxed text-gray-800">
                 Jadi ya wajar kalau hari ini aku ngerasa lebih hangat n calming bangett dari biasanya 
                 anjay calming gak tuh wkwk. Bukan karena ada acara apa-apa, tapi karena 
-                <span className="font-bold text-accent"> sosokk kamuu Nauu</span>. 
+                <span className="font-bold text-accent"> sosokk kamuu Nauu </span>. <span>HUU UDAH TUAA KWKWK</span>
                 <span className="emoji-bounce inline-block ml-1">✨</span>
               </p>
             </div>
