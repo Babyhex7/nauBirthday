@@ -1,16 +1,11 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Play, Pause, Music, Volume2, VolumeX } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Pause, Play } from 'lucide-react'
 
 export default function MusicPlayer({ isPlaying, setIsPlaying }) {
-  const [isMuted, setIsMuted] = useState(false)
-  const [showControl, setShowControl] = useState(false)
   const audioRef = useRef(null)
-
-  // You can add your music file to public/music/birthday-song.mp3
-  // Recommended: "A Thousand Years" - Christina Perri or any romantic instrumental
 
   const togglePlay = async () => {
     if (audioRef.current) {
@@ -29,17 +24,24 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
     }
   }
 
-  const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
-    }
-  }
-
   useEffect(() => {
     const audio = audioRef.current
     if (audio) {
-      audio.volume = 0.3 // Set volume to 30%
+      audio.volume = 0.4 // Set volume to 40%
+      
+      // Auto-play musik setelah component mount
+      const playMusic = async () => {
+        try {
+          await audio.play()
+          setIsPlaying(true)
+        } catch (error) {
+          console.log('Auto-play blocked, user interaction needed:', error)
+          setIsPlaying(false)
+        }
+      }
+
+      // Delay sedikit biar smooth
+      const timer = setTimeout(playMusic, 500)
       
       // Handle audio events
       const handleEnded = () => setIsPlaying(false)
@@ -51,6 +53,7 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
       audio.addEventListener('play', handlePlay)
       
       return () => {
+        clearTimeout(timer)
         audio.removeEventListener('ended', handleEnded)
         audio.removeEventListener('pause', handlePause)
         audio.removeEventListener('play', handlePlay)
@@ -66,89 +69,38 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
         loop
         preload="auto"
       >
-        {/* Add your music file path here */}
-        <source src="/music/birthday-song.mp3" type="audio/mpeg" />
+        <source src="/music/happy-birthday-254480.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* Music Player Control */}
+      {/* Simple Floating Music Control - Pojok Kanan Atas */}
       <motion.div
-        className="music-player group"
-        onMouseEnter={() => setShowControl(true)}
-        onMouseLeave={() => setShowControl(false)}
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 1, type: "spring" }}
+        className="fixed top-6 right-6 z-50"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
       >
         <motion.button
           onClick={togglePlay}
-          className="relative"
+          className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-lg hover:shadow-xl transition-shadow"
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <motion.div
-            animate={isPlaying ? { rotate: 360 } : {}}
-            transition={isPlaying ? { duration: 3, repeat: Infinity, ease: "linear" } : {}}
-          >
-            {isPlaying ? (
-              <Music className="w-8 h-8 text-accent" />
-            ) : (
-              <Play className="w-8 h-8 text-accent" />
-            )}
-          </motion.div>
+          {isPlaying ? (
+            <Pause className="w-6 h-6 text-accent fill-accent" />
+          ) : (
+            <Play className="w-6 h-6 text-accent fill-accent" />
+          )}
 
-          {/* Playing Animation */}
+          {/* Playing Animation Ring */}
           {isPlaying && (
             <motion.div
-              className="absolute -inset-2 border-2 border-accent rounded-full"
-              animate={{ scale: [1, 1.3], opacity: [0.8, 0] }}
+              className="absolute inset-0 border-2 border-accent rounded-full"
+              animate={{ scale: [1, 1.2], opacity: [0.6, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
           )}
         </motion.button>
-
-        {/* Expanded Controls */}
-        <AnimatePresence>
-          {showControl && (
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              className="absolute right-full mr-2 top-1/2 -translate-y-1/2 bg-white rounded-full px-4 py-2 shadow-lg flex items-center gap-3"
-            >
-              <button
-                onClick={toggleMute}
-                className="hover:scale-110 transition"
-              >
-                {isMuted ? (
-                  <VolumeX className="w-5 h-5 text-gray-600" />
-                ) : (
-                  <Volume2 className="w-5 h-5 text-accent" />
-                )}
-              </button>
-              <span className="text-sm font-poppins text-gray-600">
-                {isPlaying ? 'Playing' : 'Paused'}
-              </span>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.div>
-
-      {/* Music Info Tooltip */}
-      <AnimatePresence>
-        {!isPlaying && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-24 right-20 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg"
-          >
-            <p className="text-sm font-poppins text-gray-700 flex items-center gap-2">
-              <Music className="w-4 h-4 text-accent" />
-              Nyalakan musik? 🎵
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   )
 }
