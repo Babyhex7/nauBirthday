@@ -101,7 +101,7 @@ export default function Chapter3({ onNext, onPrev }) {
                   </div>
                 </div>
                 <p className="text-center mt-4 font-pacifico text-xl text-accent">
-                  NAUU SI DEADLINER 😝😜😜
+                  Nauu Si Deadlinerr 😝😜😜
                 </p>
               </motion.div>
             </div>
@@ -133,15 +133,15 @@ export default function Chapter3({ onNext, onPrev }) {
                 <span className="font-bold text-accent text-xl">3 Desember 2025</span>{' '}
                 sesosok hebat ituu sekarang bertambah umur untuk terus menuju{' '}
                 <span className="font-bold text-accent">kedewasaaan nya</span>{' '}
-                <span className="emoji-bounce inline-block">😇</span> dan buat aku, ini bukan cuma soal angka. 
-                Ini soal sejauh apa kmauu udah berkembang jadi sosok yang sekarangg sosok yang memiliki{' '}
+                <span className="emoji-bounce inline-block">😇</span> dan buat aku, ini bukan cuma soal umur atau angkaa, tpi
+                Ini soal sejauh apa nauraa udah berkembang jadi sosok yang sekarangg sosok yang memiliki{' '}
                 <span className="font-bold text-accent">jiwa kemanusiaan yang memang jarang ditemui</span>{' '}
                 di orang orang jaman sekarang nauu <span className="text-sm">(SUMPAH KWKW)</span>
               </p>
 
               <p className="text-base md:text-lg leading-relaxed text-gray-800">
-                Banyak orang mungkin nggak sadar, tapi sebenrnya kamu itu tipe orang yang{' '}
-                <span className="font-bold text-accent">kehadirannya bisa bikin suasana jadi lebih baik</span>{' '}
+                Banyak orang mungkin nggak sadar, tapi sebenrnya kamu itu tipe orang yang sebenrnya yaa{' '}
+                <span className="font-bold text-accent">kehadirannya bisa bikin suasana jadi kayakk lebih baik gituu</span>{' '}
                 tanpa harus ngomong panjang lebar, kayak punya energi positif ajaa gitu{' '}
                 <span className="text-sm">(WALAU KADANG NYEBELIN YA)</span>{' '}
                 <span className="emoji-bounce inline-block">😝</span>
@@ -152,7 +152,7 @@ export default function Chapter3({ onNext, onPrev }) {
                 <span className="font-bold text-accent">makin mantapp dehh cihuyy</span>. 
                 Semoga makin percaya diri, makin ketemu hal-hal yang bikin kamu happy, dan makin jarang 
                 ngerasa capek sendirian (karena ada bagas<span className="emoji-bounce inline-block">😎</span> ANJAYY, 
-                BECANDAA<span className="emoji-bounce inline-block">🤣</span>).
+                BECANDAA,beneran gpp cii kwkw<span className="emoji-bounce inline-block">🤣</span>).
               </p>
 
               <motion.div
@@ -162,7 +162,7 @@ export default function Chapter3({ onNext, onPrev }) {
                 transition={{ delay: 1 }}
               >
                 <p className="text-center text-sm md:text-base text-gray-800 mb-2">
-                  Dan aku mau titip harapan kecil nih <span className="emoji-bounce inline-block">😌</span>
+                  Dan aku mau titip harapan buat si tuan putri kecill nihh <span className="emoji-bounce inline-block">😌</span>
                 </p>
                 <p className="text-center text-lg md:text-xl font-bold text-accent font-playfair">
                   Semoga Tuan Putri Manja Yang Palingg CANTIKK satu iniii 

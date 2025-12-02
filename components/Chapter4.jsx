@@ -126,12 +126,14 @@ export default function Chapter4({ onPrev, onNext }) {
                   Anggap aja ini bentuk penghargaan buat sosok yang selalu hadir 
                   dalam bentuk apapunnn
                 </p>
-                <p className="text-center text-sm md:text-base text-gray-700 mt-2">
-                  <span className="font-bold text-accent">
+                <p className="text-center text-base md:text-xl text-gray-700 mt-2">
+                  <span className="font-bold text-accent text-2xl md:text-3xl block mb-2">
                     DALAM BENTUK KUDA, KODOK, PINOKIO, PERI, MUSANG
-                  </span>{' '}
-                  WKWKWKKWKKW
-                  <span className="emoji-bounce inline-block ml-1">🦄🐸🤥🧚‍♀️🦊</span>
+                  </span>
+                  <span className="text-lg md:text-2xl font-semibold">
+                    WKWKWKKWKKW
+                  </span>
+                  <span className="emoji-bounce inline-block ml-1 text-2xl md:text-3xl">🦄🐸🤥🧚‍♀️🦊</span>
                 </p>
               </motion.div>
             </div>
