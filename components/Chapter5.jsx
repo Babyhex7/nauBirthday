@@ -173,24 +173,11 @@ export default function Chapter5({ onPrev }) {
         className="max-w-2xl mx-auto w-full relative z-10"
       >
         <motion.div variants={itemVariants} className="text-center mb-8">
-          <motion.div
-            animate={{ 
-              y: [0, -15, 0],
-              rotate: [0, -10, 10, -10, 0]
-            }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex justify-center mb-6"
-          >
-            <div className="bg-gradient-to-br from-gold to-accent p-8 rounded-full shadow-2xl">
-              <Gift className="w-20 h-20 text-white" />
-            </div>
-          </motion.div>
-
-          <h1 className="font-playfair text-5xl md:text-7xl font-bold gradient-text mb-4">
-            Hadiah Spesial Untukmu
+          <h1 className="font-playfair text-3xl md:text-5xl font-bold gradient-text mb-4 whitespace-nowrap">
+            🎉 Selamat Naurawrr! 🎉
           </h1>
           <p className="text-lg md:text-xl text-gray-600 font-pacifico">
-            Klik kotak hadiah di bawah untuk membuka kejutan
+            Dapet ShopeePay 30K
           </p>
         </motion.div>
 
@@ -257,27 +244,30 @@ export default function Chapter5({ onPrev }) {
               </div>
 
               <h3 className="text-3xl md:text-4xl font-playfair font-bold text-center text-accent mb-8">
-                Hadiah Spesial Untukmu
+                🎉 BUAT NAURAA JAJAN YA🥳
               </h3>
 
-              {/* QRIS Code */}
+              {/* ShopeePay Link Button */}
               <div className="bg-white rounded-2xl p-8 mb-6 shadow-inner">
-                <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center overflow-hidden">
-                  <img
-                    src="/qris-50k.png"
-                    alt="QRIS 50k"
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      e.target.style.display = 'none'
-                      e.target.nextSibling.style.display = 'flex'
-                    }}
-                  />
-                  <div className="hidden flex-col items-center justify-center text-center p-8">
-                    <Sparkles className="w-24 h-24 text-accent mx-auto mb-4" />
-                    <p className="text-gray-600 font-poppins text-xl mb-2">QRIS Code</p>
-                    <p className="text-4xl font-bold text-accent mt-2">IDR 50.000</p>
-                    <p className="text-sm text-gray-500 mt-4">💳 Taruh QRIS di: public/qris-50k.png</p>
-                  </div>
+                <div className="max-w-md mx-auto">
+                  <a 
+                    href="https://app.shopeepay.co.id/u/5LnustmkvxDaiEpMCVBHE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-center cursor-pointer shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                      <div className="text-white mb-4">
+                        <Gift className="w-20 h-20 mx-auto mb-4" />
+                        <p className="text-2xl font-bold mb-2">Klaim ShopeePay 30K</p>
+                        <p className="text-lg opacity-90">Tap untuk buka link ShopeePay</p>
+                      </div>
+                    </motion.div>
+                  </a>
                 </div>
               </div>
 
