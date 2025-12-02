@@ -226,7 +226,7 @@ export default function Chapter3({ onNext, onPrev }) {
                 whileTap={{ scale: 0.95 }}
               >
                 <Sparkles className="w-5 h-5" />
-                <span>Buka Hadiah</span>
+                <span>Dikitt lagii yukk</span>
                 <motion.span
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
