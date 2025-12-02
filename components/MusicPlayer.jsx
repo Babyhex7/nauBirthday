@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Pause, Play } from 'lucide-react'
+import { Music } from 'lucide-react'
 
 export default function MusicPlayer({ isPlaying, setIsPlaying }) {
   const audioRef = useRef(null)
@@ -85,11 +85,12 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          {isPlaying ? (
-            <Pause className="w-6 h-6 text-accent fill-accent" />
-          ) : (
-            <Play className="w-6 h-6 text-accent fill-accent" />
-          )}
+          <motion.div
+            animate={isPlaying ? { rotate: [0, 5, -5, 0], scale: [1, 1.1, 1] } : {}}
+            transition={isPlaying ? { duration: 0.5, repeat: Infinity } : {}}
+          >
+            <Music className="w-6 h-6 text-accent" />
+          </motion.div>
 
           {/* Playing Animation Ring */}
           {isPlaying && (

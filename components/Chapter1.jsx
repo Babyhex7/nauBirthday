@@ -28,6 +28,39 @@ export default function Chapter1({ onNext }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 md:p-6 relative overflow-hidden">
+      {/* Background Happy Birthday Text - Static di Tengah */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 flex items-center justify-center">
+        <div className="text-8xl md:text-9xl font-playfair font-bold text-accent/5">
+          Happy Birthday
+        </div>
+      </div>
+      
+      {/* Floating Emojis Background - Samping Kiri & Kanan */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        {Array.from({ length: 25 }, (_, i) => {
+          const emojis = ['🎂', '🎉', '🎈', '🎁', '💝', '🌟', '✨', '💕', '🎊', '🌸', '🦋', '🌺', '💖', '🎀', '👑']
+          const randomEmoji = emojis[i % emojis.length]
+          // Posisi di samping kiri (0-20%) atau kanan (80-100%)
+          const isLeft = i % 2 === 0
+          const randomX = isLeft ? Math.random() * 20 : 80 + Math.random() * 20
+          const randomY = Math.random() * 100
+          const randomDelay = Math.random() * 8
+          const randomDuration = 8 + Math.random() * 4
+          return (
+            <div
+              key={i}
+              className="absolute text-4xl opacity-20"
+              style={{
+                left: `${randomX}%`,
+                top: `${randomY}%`,
+                animation: `float-up ${randomDuration}s ease-in-out ${randomDelay}s infinite`,
+              }}
+            >
+              {randomEmoji}
+            </div>
+          )
+        })}
+      </div>
       {/* Confetti Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {confettiItems.map((i) => (
