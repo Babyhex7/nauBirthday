@@ -112,9 +112,65 @@ export default function Chapter3({ onNext, onPrev }) {
           {/* Left: Photo */}
           <motion.div variants={itemVariants} className="order-2 md:order-1">
             <div className="relative group">
+              {/* Crown Sticker di pojok kanan atas */}
+              <motion.div
+                className="absolute -top-6 -right-6 z-20"
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.8, type: "spring", bounce: 0.6 }}
+              >
+                <div className="relative">
+                  <Crown className="w-16 h-16 text-gold fill-gold drop-shadow-lg" />
+                  <motion.div
+                    className="absolute inset-0"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Crown className="w-16 h-16 text-gold fill-gold blur-sm" />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Sparkle Glow Effect */}
+              <motion.div
+                className="absolute inset-0 rounded-lg z-10"
+                animate={{
+                  boxShadow: [
+                    '0 0 20px rgba(255, 215, 0, 0.3)',
+                    '0 0 40px rgba(255, 215, 0, 0.5)',
+                    '0 0 20px rgba(255, 215, 0, 0.3)',
+                  ],
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+
+              {/* Floating Sparkles */}
+              {Array.from({ length: 8 }, (_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute text-2xl z-20"
+                  style={{
+                    left: `${10 + (i * 15)}%`,
+                    top: i % 2 === 0 ? '-5%' : '105%',
+                  }}
+                  animate={{
+                    y: [0, -15, 0],
+                    opacity: [0.6, 1, 0.6],
+                    scale: [0.8, 1.2, 0.8],
+                  }}
+                  transition={{
+                    duration: 2 + Math.random(),
+                    repeat: Infinity,
+                    delay: i * 0.3,
+                  }}
+                >
+                  ✨
+                </motion.div>
+              ))}
+
               <motion.div
                 whileHover={{ scale: 1.02, rotate: -2 }}
-                className="polaroid"
+                className="polaroid relative z-10"
               >
                 <div className="aspect-[3/4] bg-gradient-to-br from-gold/20 to-accent rounded-lg overflow-hidden">
                   <img

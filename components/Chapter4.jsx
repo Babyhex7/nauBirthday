@@ -87,9 +87,74 @@ export default function Chapter4({ onPrev, onNext }) {
           {/* Left: Photo */}
           <motion.div variants={itemVariants} className="order-2 md:order-1">
             <div className="relative group">
+              {/* Ribbon di pojok kiri atas */}
+              <motion.div
+                className="absolute -top-4 -left-4 z-20"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.8, type: "spring" }}
+              >
+                <div className="relative">
+                  <div className="w-16 h-20 bg-gradient-to-b from-accent to-primary rounded-b-full shadow-lg"></div>
+                  <div className="absolute top-0 left-0 w-16 h-6 bg-accent/80 rounded-t-lg"></div>
+                  <motion.div
+                    className="absolute top-2 left-1/2 transform -translate-x-1/2"
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Sparkles className="w-6 h-6 text-white" />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Star Rating di pojok kanan atas */}
+              <motion.div
+                className="absolute -top-6 -right-6 z-20 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg"
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 1, type: "spring" }}
+              >
+                <div className="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map((star, i) => (
+                    <motion.div
+                      key={star}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 1.2 + (i * 0.1) }}
+                    >
+                      <Star className="w-4 h-4 text-gold fill-gold" />
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Floating Stars */}
+              {Array.from({ length: 6 }, (_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute z-20"
+                  style={{
+                    left: i % 2 === 0 ? '-8%' : '108%',
+                    top: `${20 + (i * 12)}%`,
+                  }}
+                  animate={{
+                    x: [0, i % 2 === 0 ? 10 : -10, 0],
+                    rotate: [0, 360],
+                    opacity: [0.6, 1, 0.6],
+                  }}
+                  transition={{
+                    duration: 3 + Math.random(),
+                    repeat: Infinity,
+                    delay: i * 0.4,
+                  }}
+                >
+                  <Star className="w-6 h-6 text-gold fill-gold" />
+                </motion.div>
+              ))}
+
               <motion.div
                 whileHover={{ scale: 1.02, rotate: 2 }}
-                className="polaroid"
+                className="polaroid relative z-10"
               >
                 <div className="aspect-[3/4] bg-gradient-to-br from-accent to-primary rounded-lg overflow-hidden">
                   <img

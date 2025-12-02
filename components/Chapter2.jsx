@@ -195,8 +195,39 @@ export default function Chapter2({ onNext, onPrev }) {
           <motion.div variants={itemVariants}>
             <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl">
               <div {...handlers} className="relative">
+                {/* Washi Tape Effect - Top Left */}
+                <div className="absolute -top-3 -left-3 w-24 h-12 bg-accent/60 -rotate-12 z-20 shadow-md"></div>
+                <div className="absolute -top-3 -left-3 w-24 h-12 bg-white/40 -rotate-12 z-20"></div>
+                
+                {/* Washi Tape Effect - Top Right */}
+                <div className="absolute -top-3 -right-3 w-24 h-12 bg-primary/60 rotate-12 z-20 shadow-md"></div>
+                <div className="absolute -top-3 -right-3 w-24 h-12 bg-white/40 rotate-12 z-20"></div>
+
+                {/* Floating Hearts around photo */}
+                <motion.div
+                  className="absolute -top-6 left-1/4 z-20"
+                  animate={{ y: [-5, 5, -5], rotate: [0, 10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <Heart className="w-8 h-8 text-accent fill-accent opacity-80" />
+                </motion.div>
+                <motion.div
+                  className="absolute -bottom-6 right-1/4 z-20"
+                  animate={{ y: [5, -5, 5], rotate: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+                >
+                  <Heart className="w-6 h-6 text-primary fill-primary opacity-80" />
+                </motion.div>
+                <motion.div
+                  className="absolute top-1/3 -left-6 z-20"
+                  animate={{ x: [-3, 3, -3], rotate: [0, 15, 0] }}
+                  transition={{ duration: 2.5, repeat: Infinity, delay: 1 }}
+                >
+                  <Heart className="w-7 h-7 text-accent fill-accent opacity-70" />
+                </motion.div>
+
                 {/* Photo Container */}
-                <div className="relative aspect-[3/4] bg-gradient-to-br from-primary to-accent rounded-2xl overflow-hidden mb-4">
+                <div className="relative aspect-[3/4] bg-gradient-to-br from-primary to-accent rounded-2xl overflow-hidden mb-4 z-10">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentPhoto}

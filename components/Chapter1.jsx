@@ -104,9 +104,45 @@ export default function Chapter1({ onNext }) {
           {/* Left: Photo */}
           <motion.div variants={itemVariants} className="order-2 md:order-1">
             <div className="relative group">
+              {/* Badge "First Day" di pojok kanan atas */}
+              <motion.div
+                className="absolute -top-4 -right-4 z-20 bg-gradient-to-r from-accent to-primary text-white px-4 py-2 rounded-full shadow-lg font-bold text-sm"
+                initial={{ scale: 0, rotate: -45 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.8, type: "spring" }}
+              >
+                ✨ First Day
+              </motion.div>
+
+              {/* Confetti particles around photo */}
+              <div className="absolute inset-0 pointer-events-none">
+                {Array.from({ length: 12 }, (_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute text-2xl z-10"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                    }}
+                    animate={{
+                      y: [0, -20, 0],
+                      rotate: [0, 360],
+                      opacity: [0.8, 1, 0.8],
+                    }}
+                    transition={{
+                      duration: 2 + Math.random() * 2,
+                      repeat: Infinity,
+                      delay: Math.random() * 2,
+                    }}
+                  >
+                    {['🎉', '🎊', '⭐', '💫', '✨'][i % 5]}
+                  </motion.div>
+                ))}
+              </div>
+
               <motion.div
                 whileHover={{ scale: 1.02, rotate: 2 }}
-                className="polaroid"
+                className="polaroid relative z-10"
               >
                 <div className="aspect-[3/4] bg-gradient-to-br from-primary to-accent rounded-lg overflow-hidden">
                   <img
