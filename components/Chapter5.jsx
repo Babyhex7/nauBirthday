@@ -174,7 +174,7 @@ export default function Chapter5({ onPrev }) {
       >
         <motion.div variants={itemVariants} className="text-center mb-8">
           <h1 className="font-playfair text-3xl md:text-5xl font-bold gradient-text mb-4 whitespace-nowrap">
-            🎉 Selamat Naurawrr! 🎉
+            🎉 Happy Level Up Cantikk 🎉
           </h1>
         </motion.div>
 
@@ -260,8 +260,8 @@ export default function Chapter5({ onPrev }) {
                     >
                       <div className="text-white mb-4">
                         <Gift className="w-20 h-20 mx-auto mb-4" />
-                        <p className="text-2xl font-bold mb-2">Klaim ShopeePay 30K</p>
-                        <p className="text-lg opacity-90">Tap untuk buka link ShopeePay</p>
+                        <p className="text-2xl font-bold mb-2">Klaim ShopeePay Yaaa</p>
+                        <p className="text-lg opacity-90">Tinggal Klik Ajaa yaa cantikk</p>
                       </div>
                     </motion.div>
                   </a>
@@ -281,13 +281,13 @@ export default function Chapter5({ onPrev }) {
                 </p>
 
                 <p className="text-2xl md:text-3xl font-playfair font-bold text-accent mb-4">
-                  Dan selamat ulang tahun, Naura
+                  Dan selamat ulang tahun, Nauraaa
                 </p>
 
                 <p className="text-lg md:text-xl leading-relaxed text-gray-800">
                   Semoga juga cerita Naura ke depan dipenuhi hal-hal baik, 
                   dikelilingin orang hebat, dan yang paling penting
-                  HARUS BAHAGIA N HAPPY SELALU YA NAU NAU UNYU
+                  HARUS BAHAGIA N HAPPY SELALU YA NAU NAU UNYUU😝
                 </p>
               </motion.div>
             </motion.div>

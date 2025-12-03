@@ -174,7 +174,7 @@ export default function Chapter4({ onPrev, onNext }) {
                   </div>
                 </div>
                 <p className="text-center mt-4 font-pacifico text-xl text-accent">
-                  Naura & Fren 💕
+                  😊 Nau Si Lucuu 💕
                 </p>
               </motion.div>
             </div>
