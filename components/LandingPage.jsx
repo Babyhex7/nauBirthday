@@ -11,7 +11,7 @@ export default function LandingPage({ onStart }) {
   useEffect(() => {
     setMounted(true);
     // Trigger confetti saat halaman dimuat
-    const duration = 3000;
+    const duration = 2000;
     const animationEnd = Date.now() + duration;
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
@@ -350,23 +350,23 @@ export default function LandingPage({ onStart }) {
                 scale: [1, 1.1, 1],
               }}
               transition={{
-                opacity: { duration: 0.5, delay: 0.3 + index * 0.05 },
+                opacity: { duration: 0.5, delay: 0.2 + index * 0.05 },
                 y: { 
-                  duration: 0.5,
+                  duration: 0.4,
                   delay: 0.3 + index * 0.05,
                   type: "spring",
                   stiffness: 200,
                   damping: 10
                 },
                 rotateX: {
-                  duration: 0.5,
+                  duration: 0.4,
                   delay: 0.3 + index * 0.05,
                   type: "spring",
                   stiffness: 200,
                   damping: 10
                 },
                 scale: {
-                  duration: 1.5,
+                  duration: 1.2,
                   delay: 2.5 + index * 0.1, // Mulai setelah teks diam
                   repeat: Infinity,
                   repeatDelay: 4,

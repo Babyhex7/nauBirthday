@@ -6,6 +6,12 @@ import { Music } from 'lucide-react'
 
 export default function MusicPlayer({ isPlaying, setIsPlaying }) {
   const audioRef = useRef(null)
+  const [currentTrack, setCurrentTrack] = useState(0)
+  
+  const tracks = [
+    '/music/happy-birthday-254480.mp3',
+    '/music/birthday_song.mp3'
+  ]
 
   const togglePlay = async () => {
     if (audioRef.current) {
@@ -27,7 +33,7 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
   useEffect(() => {
     const audio = audioRef.current
     if (audio) {
-      audio.volume = 0.4 // Set volume to 40%
+      audio.volume = 0.5 // Set volume to 40%
       
       // Auto-play musik setelah component mount
       const playMusic = async () => {
@@ -44,7 +50,11 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
       const timer = setTimeout(playMusic, 500)
       
       // Handle audio events
-      const handleEnded = () => setIsPlaying(false)
+      const handleEnded = () => {
+        // Switch to next track when current song ends
+        setCurrentTrack((prev) => (prev + 1) % tracks.length)
+        setIsPlaying(false)
+      }
       const handlePause = () => setIsPlaying(false)
       const handlePlay = () => setIsPlaying(true)
       
@@ -59,17 +69,39 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }) {
         audio.removeEventListener('play', handlePlay)
       }
     }
-  }, [setIsPlaying])
+  }, [setIsPlaying, tracks.length])
+
+  // Auto-play next track when currentTrack changes
+  useEffect(() => {
+    const audio = audioRef.current
+    if (audio) {
+      audio.load()
+      const playNext = async () => {
+        try {
+          // Set start time untuk birthday_song.mp3 (track index 1) mulai dari detik ke-3
+          if (currentTrack === 1) {
+            audio.currentTime = 2
+          }
+          await audio.play()
+          setIsPlaying(true)
+        } catch (error) {
+          console.log('Next track play error:', error)
+        }
+      }
+      // Delay sedikit untuk smooth transition
+      const timer = setTimeout(playNext, 300)
+      return () => clearTimeout(timer)
+    }
+  }, [currentTrack, setIsPlaying])
 
   return (
     <>
       {/* Hidden Audio Element */}
       <audio
         ref={audioRef}
-        loop
         preload="auto"
       >
-        <source src="/music/happy-birthday-254480.mp3" type="audio/mpeg" />
+        <source src={tracks[currentTrack]} type="audio/mpeg" />
       </audio>
 
       {/* Simple Floating Music Control - Pojok Kanan Atas */}

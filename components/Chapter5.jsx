@@ -176,9 +176,6 @@ export default function Chapter5({ onPrev }) {
           <h1 className="font-playfair text-3xl md:text-5xl font-bold gradient-text mb-4 whitespace-nowrap">
             🎉 Selamat Naurawrr! 🎉
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 font-pacifico">
-            Dapet ShopeePay 30K
-          </p>
         </motion.div>
 
         {/* Gift Reveal */}

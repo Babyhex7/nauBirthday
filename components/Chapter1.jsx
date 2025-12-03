@@ -203,9 +203,26 @@ export default function Chapter1({ onNext }) {
                 yaapp orang itu adalahh...
               </p>
 
-              <p className="font-playfair text-2xl md:text-3xl font-bold gradient-text text-center py-2">
-                Naura Rasendrya Rega
-              </p>
+              <div className="font-playfair text-2xl md:text-3xl font-bold gradient-text text-center py-2">
+                {'Naura Rasendrya Rega'.split('').map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.2,
+                      delay: index * 0.03,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      repeatDelay: 2
+                    }}
+                    className="inline-block"
+                    style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
+                  >
+                    {char === ' ' ? '\u00A0' : char}
+                  </motion.span>
+                ))}
+              </div>
 
               <p className="text-base md:text-lg leading-relaxed text-gray-800">
                 Naura yang mungkin sering bilang dirinya biasa aja, padahal ya nggak gitu juga wkkw. 
